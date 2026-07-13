@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pengambilan Nomor LK — SIPIL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <div id="sidebarMount"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <button id="burger" class="icon-btn" style="display:none;"><i class="fa-solid fa-bars"></i></button>
+        <div class="page-title">Pengambilan Nomor LK<small>Isi data pemeriksaan lalu generate nomor</small></div>
+      </div>
+      <div class="right"><span class="clock" id="clock"></span></div>
+    </div>
+
+    <div class="content">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h3>Form Pengisian Data</h3>
+            <div class="sub">Nomor akan dibuat otomatis berdasarkan nomor terakhir di database</div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <form id="formLK">
+            <div class="form-grid">
+              <div class="field">
+                <label>Tanggal</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-calendar"></i>
+                  <input type="date" id="tanggal" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Kategori</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-user-group"></i>
+                  <select id="kategori" required>
+                    <option value="WNI">WNI</option>
+                    <option value="WNA">WNA</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Nama</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-id-card"></i>
+                  <input type="text" id="nama" placeholder="Nama lengkap" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Jenis Kelamin</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-venus-mars"></i>
+                  <select id="jenisKelamin" required>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Kebangsaan</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-earth-asia"></i>
+                  <select id="kebangsaan" required>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Singapura">Singapura</option>
+                    <option value="Tiongkok">Tiongkok</option>
+                    <option value="India">India</option>
+                    <option value="Filipina">Filipina</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Lainnya">Lainnya</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field" id="kebangsaanLainnyaWrap" style="display:none;">
+                <label>Sebutkan Kebangsaan</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-earth-asia"></i>
+                  <input type="text" id="kebangsaanLainnya" placeholder="Tulis kebangsaan lainnya">
+                </div>
+              </div>
+
+              <div class="field">
+                <label>NIK / Nomor Paspor</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-passport"></i>
+                  <input type="text" id="nikPaspor" placeholder="Nomor identitas" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Jenis BAP</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-file-lines"></i>
+                  <select id="jenisBAP" required>
+                    <option value="BAP Paspor Hilang">BAP Paspor Hilang</option>
+                    <option value="BAP Paspor Rusak">BAP Paspor Rusak</option>
+                    <option value="BAP Perubahan Data">BAP Perubahan Data</option>
+                    <option value="Lainnya">Lainnya</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field full">
+                <label>Perihal</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-pen"></i>
+                  <input type="text" id="perihal" placeholder="Ringkasan perihal pemeriksaan" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Petugas Pemeriksa</label>
+                <div class="input-wrap">
+                  <i class="fa-fixed fa-solid fa-user-shield"></i>
+                  <input type="text" id="petugas" placeholder="Nama petugas pemeriksa" required>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div style="margin-top:22px;display:flex;gap:12px;">
+              <button type="submit" class="btn btn-primary" id="btnGenerate" style="max-width:260px;">
+                <i class="fa-solid fa-bolt"></i> <span id="btnGenerateText">Generate Nomor</span>
+              </button>
+              <button type="button" class="btn btn-ghost" id="btnReset">Bersihkan Form</button>
+            </div>
+          </form>
+
+          <div class="result-ticket" id="resultTicket">
+            <div class="ok"><i class="fa-solid fa-check"></i></div>
+            <div>
+              <div class="cap">Nomor Berhasil Dibuat &amp; Tersimpan</div>
+              <div class="num" id="resultNumber">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/config.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/pengambilan.js"></script>
+</body>
+</html>
