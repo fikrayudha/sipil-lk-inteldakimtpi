@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login — SIPIL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="login-wrap">
+
+  <!-- SISI KIRI: BRAND -->
+  <div class="login-side">
+    <div class="login-brand">
+      <div class="mark">
+        <img src="assets/logo.png" alt="Logo" class="mark-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+        <span class="mark-fallback" style="display:none;">BD</span>
+      </div>
+      <div class="name">
+        SIPIL
+        <small>Kantor Imigrasi Kelas I TPI Tanjungpinang</small>
+      </div>
+    </div>
+
+    <div class="login-ticket">
+      <div class="eyebrow">Bidang Intelijen &amp; Penindakan Keimigrasian</div>
+      <h1>Sistem Penomoran Informasi Laporan Keimigrasian</h1>
+      <p>Kelola penomoran LK/BAP secara berurutan, tercatat, dan dapat ditelusuri, langsung dari satu dasbor.</p>
+    </div>
+
+    <div class="foot">&copy; 2026 SIPIL · Direktorat Jenderal Imigrasi</div>
+  </div>
+
+  <!-- SISI KANAN: FORM LOGIN -->
+  <div class="login-form-side">
+    <div class="login-card">
+      <h2>Masuk ke akun</h2>
+      <p class="sub">Gunakan akun petugas yang terdaftar untuk mengakses SIPIL.</p>
+
+      <form id="formLogin" autocomplete="off">
+        <div class="field">
+          <label for="username">Username</label>
+          <div class="input-wrap">
+            <i class="fa-fixed fa-solid fa-user"></i>
+            <input type="text" id="username" placeholder="Masukkan username" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <i class="fa-fixed fa-solid fa-lock"></i>
+            <input type="password" id="password" placeholder="Masukkan password" required>
+            <button type="button" class="toggle-pass" id="togglePass"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btnLogin">
+          <span id="btnLoginText">Masuk</span>
+        </button>
+      </form>
+
+      <div class="login-foot-note">Lupa password? Hubungi administrator sistem.</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

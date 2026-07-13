@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — SIPIL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <div id="sidebarMount"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <button id="burger" class="icon-btn" style="display:none;"><i class="fa-solid fa-bars"></i></button>
+        <div class="page-title">Dashboard<small>Ringkasan penomoran LK hari ini</small></div>
+      </div>
+      <div class="right">
+        <span class="clock" id="clock"></span>
+        <a href="pengambilan.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Ambil Nomor</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="grid-cards" id="cardsMount">
+        <div class="stat-card blue">
+          <div class="icon"><i class="fa-solid fa-hashtag"></i></div>
+          <div class="value mono skeleton" id="valLastNumber">&nbsp;</div>
+          <div class="label">Nomor LK Terakhir</div>
+        </div>
+        <div class="stat-card navy">
+          <div class="icon"><i class="fa-solid fa-folder-open"></i></div>
+          <div class="value skeleton" id="valTotal">&nbsp;</div>
+          <div class="label">Total LK Tahun Ini</div>
+        </div>
+        <div class="stat-card green">
+          <div class="icon"><i class="fa-solid fa-calendar-day"></i></div>
+          <div class="value skeleton" id="valToday">&nbsp;</div>
+          <div class="label">LK Hari Ini</div>
+        </div>
+        <div class="stat-card amber">
+          <div class="icon"><i class="fa-solid fa-earth-asia"></i></div>
+          <div class="value skeleton" id="valNegara">&nbsp;</div>
+          <div class="label">Jumlah Kebangsaan</div>
+        </div>
+      </div>
+
+      <div class="grid-cards" style="grid-template-columns: 1fr 1fr; margin-bottom:24px;">
+        <div class="stat-card blue">
+          <div class="icon"><i class="fa-solid fa-user"></i></div>
+          <div class="value skeleton" id="valWni">&nbsp;</div>
+          <div class="label">Total BAP — WNI</div>
+        </div>
+        <div class="stat-card amber">
+          <div class="icon"><i class="fa-solid fa-passport"></i></div>
+          <div class="value skeleton" id="valWna">&nbsp;</div>
+          <div class="label">Total BAP — WNA</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h3>Aktivitas Terbaru</h3>
+            <div class="sub">5 pengambilan nomor LK paling akhir</div>
+          </div>
+          <a href="database.html" class="btn btn-ghost btn-sm">Lihat Semua <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="panel-body" style="padding:0;">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Nomor LK</th><th>Tanggal</th><th>Nama</th><th>Kategori</th><th>Jenis BAP</th><th>Petugas</th>
+                </tr>
+              </thead>
+              <tbody id="recentRows">
+                <tr><td colspan="6" style="text-align:center;color:#8895B3;padding:24px;">Memuat data...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/config.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

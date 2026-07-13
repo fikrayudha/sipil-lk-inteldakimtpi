@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>SIPIL</title>
+<script>
+  try {
+    const s = JSON.parse(localStorage.getItem("sipil_session") || "null");
+    window.location.href = s ? "dashboard.html" : "login.html";
+  } catch (e) {
+    window.location.href = "login.html";
+  }
+</script>
+</head>
+<body></body>
+</html>
