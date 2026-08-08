@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycby64gk8qTaTKJz9kTAwQ0T6iRjPsbFcRlk1TMK13MyIMHZN9Fw94PVRol6EvUVMLvlJ/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwP-EP5c7BIHs0rCTlY0U6_H1_q9TZdD5VDgXCl3Z-80n0YKtrncIc5M3HgBhl-hzpy/exec";
 
 const SIPIL = {
   session() {
